@@ -9,6 +9,6 @@ Work in progress:
 -nueral net
 
 
-resources:
+Resources:
 
 -https://www.geeksforgeeks.org/minimax-algorithm-in-game-theory-set-1-introduction/
