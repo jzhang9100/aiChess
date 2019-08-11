@@ -1,10 +1,10 @@
-#Hand Coded Openings for the AI to randomly play
+#Hand Coded Openings for the AI to play
 import random as rndm
 
 class openingbook:
     def get_opening(self, board):
         b = board
-        move = str(b.pop())
+        move = str(b.peek())
         def switch(move):
             s = {
                 #known openings against e4
