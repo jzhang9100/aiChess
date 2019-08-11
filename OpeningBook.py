@@ -1,4 +1,4 @@
-#Hand Coded Openings for the AI to play
+#Hand Coded Openings for the AI to randomly play
 import random as rndm
 
 class openingbook:
