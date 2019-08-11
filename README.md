@@ -4,7 +4,9 @@ A simple chess ai that uses the minimax algorithim with alpha-beta pruning to se
 
 Work in progress:
 
--gui (perhaps a website)
+-opening book
+
+-gui
 
 -nueral net
 
