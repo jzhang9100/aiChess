@@ -1,34 +1,34 @@
 import chess
 from minimax import Minimax
+from OpeningBook import openingbook
+class play:
+    if __name__ == '__main__':
+        board = chess.Board()
+        o = openingbook()
+        moveNum = 0
+        openingLength = 0
+        opening = []
 
-if __name__ == '__main__':
-    board = chess.Board()
-    moveNum = 0
-    while not board.is_game_over():
-        if(board.turn):
-            print(board)
-            print(list(board.legal_moves))
-            move = input("User Move: ")
-            board.push(chess.Move.from_uci(move))
-        else:
-            print(board)
-
-            #force AI to play sicilian defence
-            if(moveNum == 0):
-                sicilianMove1 = "c7c5"
-                print("AI move:")
-                print(sicilianMove1)
-                board.push(chess.Move.from_uci(sicilianMove1))
-            elif(moveNum == 1):
-                sicilianMove2 = "d7d6"
-                print("AI move:")
-                print(sicilianMove2)
-                board.push(chess.Move.from_uci(sicilianMove2))
-            #run minimax
+        while not board.is_game_over():
+            if(board.turn):
+                print(board, board.turn)
+                print(list(board.legal_moves))
+                move = input("User Move: ")
+                board.push(chess.Move.from_uci(move))
+                if(moveNum == 0):
+                    opening = o.get_opening(board)
+                    openingLength = len(opening)
             else:
-                m = Minimax(board)
-                print("AI move:")
-                aiMove = m.get_Move()
-                print(aiMove)
-                board.push(chess.Move.from_uci(str(aiMove)))
-            moveNum+=1
+                print(board, board.turn)
+                if(moveNum < openingLength):
+                    openingMove = opening[moveNum]
+                    print("AI move:", openingMove)
+                    board.push(chess.Move.from_uci(openingMove))
+                else:
+                    m = Minimax(board)
+                    aiMove = m.get_Move()
+                    print("AI move: ", aiMove )
+                    board.push(chess.Move.from_uci(str(aiMove)))
+                moveNum+=1
+
+p = play()
