@@ -17,13 +17,13 @@ if __name__ == '__main__':
             if(moveNum == 0):
                 sicilianMove1 = "c7c5"
                 print("AI move:")
-                print(sicilian)
-                board.push(chess.Move.from_uci(sicilian))
+                print(sicilianMove1)
+                board.push(chess.Move.from_uci(sicilianMove1))
             elif(moveNum == 1):
                 sicilianMove2 = "d7d6"
                 print("AI move:")
-                print(sicilian)
-                board.push(chess.Move.from_uci(sicilian))
+                print(sicilianMove2)
+                board.push(chess.Move.from_uci(sicilianMove2))
             #run minimax
             else:
                 m = Minimax(board)
