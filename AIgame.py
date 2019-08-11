@@ -15,12 +15,12 @@ if __name__ == '__main__':
 
             #force AI to play sicilian defence
             if(moveNum == 0):
-                sicilian = "c7c5"
+                sicilianMove1 = "c7c5"
                 print("AI move:")
                 print(sicilian)
                 board.push(chess.Move.from_uci(sicilian))
             elif(moveNum == 1):
-                sicilian = "d7d6"
+                sicilianMove2 = "d7d6"
                 print("AI move:")
                 print(sicilian)
                 board.push(chess.Move.from_uci(sicilian))
