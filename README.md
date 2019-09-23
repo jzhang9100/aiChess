@@ -8,7 +8,7 @@ To Do when I get some free time...:
 
 -CNN
 
--Better search algo?
+-Better search algo? (Beam Search? )
 
 
 Resources:
