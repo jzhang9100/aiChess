@@ -1,0 +1,20 @@
+AI Chess Engine - (Black)
+Represent moves with a search tree
+minimax and alpha-beta prunning (AI is minimizer)
+
+pieces:
+pawn - 100
+knight - 300
+bishop - 400
+rook - 600
+queen - 1000
+king - 10000
+
+Scripts:
+BoardAI:
+-Manages board and game state
+minimax:
+-minimax Algo
+alphaBeta:
+alphaBeta tree pruing
+

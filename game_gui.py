@@ -4,22 +4,100 @@ Background_BOARD = []
 for i in range(63):
     Background_BOARD.append(i)
 
-class gui:
-    def __init__(self):
-        pygame.init()
-        #represent 8x8 chess board as array from 0-63
-        self.board = Background_BOARD
-        self.screen = pygame.display.set_mode((625, 625))
-        pygame.display.set_caption("Chess")
+RANK_8 = 7
+RANK_7 = 6
+RANK_6 = 5
+RANK_5 = 4
+RANK_4 = 3
+RANK_3 = 2
+RANK_2 = 1
+RANK_1 = 0
 
-        #load image and resize to set as background
-        self.background = pygame.image.load('gui_images//chess_board.png').convert()
-        self.background = pygame.transform.scale(self.background, (600,600))
-        self.screen.blit(self.background, (0,0))
-        pygame.display.update()
-        pygame.time.delay(100)
+def gui_update():
+    pygame.init()
+    screen = pygame.display.set_mode((500, 500))
+    screenbox = screen.get_rect()
+    pygame.display.set_caption("Chess")
 
-        while True:
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    break
+    # load image and resize to set as background
+    background = pygame.image.load('gui_images//chess_board.png').convert()
+    background = pygame.transform.scale(background, (500, 500))
+
+    pawn = Pawn(True)
+    pawn.rect.x = 0
+    pawn.rect.y = 0
+
+    piece_list = pygame.sprite.Group()
+    piece_list.add(pawn)
+
+    screen.blit(background, (0, 0))
+    piece_list.draw(screen)
+    pygame.display.update()
+    pygame.time.delay(100)
+
+    while True:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                break
+
+
+class Pawn(pygame.sprite.Sprite):
+    def __init__(self, color):
+        pygame.sprite.Sprite.__init__(self)
+        if not color:
+            self.image = pygame.image.load('gui_images//black_pieces//bP.png')
+        else:
+            self.image = pygame.image.load('gui_images//white_pieces//wP.png')
+        self.rect = self.image.get_rect()
+        self.image = pygame.transform.scale(self.image, (65, 70))
+
+class Rook(pygame.sprite.Sprite):
+    def __init__(self, color):
+        pygame.sprite.Sprite.__init__(self)
+        if not color:
+            self.image = pygame.image.load('gui_images//black_pieces//bP.png')
+        else:
+            self.image = pygame.image.load('gui_images//white_pieces//wP.png')
+        self.rect = self.image.get_rect()
+        self.image = pygame.transform.scale(self.image, (65, 70))
+
+class Bishop(pygame.sprite.Sprite):
+    def __init__(self, color):
+        pygame.sprite.Sprite.__init__(self)
+        if not color:
+            self.image = pygame.image.load('gui_images//black_pieces//bP.png')
+        else:
+            self.image = pygame.image.load('gui_images//white_pieces//wP.png')
+        self.rect = self.image.get_rect()
+        self.image = pygame.transform.scale(self.image, (65, 70))
+
+class Knight(pygame.sprite.Sprite):
+    def __init__(self, color):
+        pygame.sprite.Sprite.__init__(self)
+        if not color:
+            self.image = pygame.image.load('gui_images//black_pieces//bP.png')
+        else:
+            self.image = pygame.image.load('gui_images//white_pieces//wP.png')
+        self.rect = self.image.get_rect()
+        self.image = pygame.transform.scale(self.image, (65, 70))
+
+class King(pygame.sprite.Sprite):
+    def __init__(self, color):
+        pygame.sprite.Sprite.__init__(self)
+        if not color:
+            self.image = pygame.image.load('gui_images//black_pieces//bP.png')
+        else:
+            self.image = pygame.image.load('gui_images//white_pieces//wP.png')
+        self.rect = self.image.get_rect()
+        self.image = pygame.transform.scale(self.image, (65, 70))
+
+class Queen(pygame.sprite.Sprite):
+    def __init__(self, color):
+        pygame.sprite.Sprite.__init__(self)
+        if not color:
+            self.image = pygame.image.load('gui_images//black_pieces//bP.png')
+        else:
+            self.image = pygame.image.load('gui_images//white_pieces//wP.png')
+        self.rect = self.image.get_rect()
+        self.image = pygame.transform.scale(self.image, (65, 70))
+
