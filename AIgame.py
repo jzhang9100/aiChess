@@ -1,3 +1,4 @@
+#!/bin/usr/python3
 import chess
 from minimax import Minimax
 from OpeningBook import openingbook
