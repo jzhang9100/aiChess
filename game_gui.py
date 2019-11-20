@@ -1,9 +1,5 @@
 import pygame
 
-Background_BOARD = []
-for i in range(63):
-    Background_BOARD.append(i)
-
 RANK_8 = 7
 RANK_7 = 6
 RANK_6 = 5
@@ -34,12 +30,16 @@ def gui_update():
     piece_list.draw(screen)
     pygame.display.update()
     pygame.time.delay(100)
-
-    while True:
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                break
-
+    try:
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    break
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_q or event.unicode == 'q':
+                        break
+    finally:
+        pygame.quit()
 
 class Pawn(pygame.sprite.Sprite):
     def __init__(self, color):
@@ -49,7 +49,7 @@ class Pawn(pygame.sprite.Sprite):
         else:
             self.image = pygame.image.load('gui_images//white_pieces//wP.png')
         self.rect = self.image.get_rect()
-        self.image = pygame.transform.scale(self.image, (65, 70))
+        self.image = pygame.transform.scale(self.image, (63, 63))
 
 class Rook(pygame.sprite.Sprite):
     def __init__(self, color):
@@ -59,7 +59,7 @@ class Rook(pygame.sprite.Sprite):
         else:
             self.image = pygame.image.load('gui_images//white_pieces//wP.png')
         self.rect = self.image.get_rect()
-        self.image = pygame.transform.scale(self.image, (65, 70))
+        self.image = pygame.transform.scale(self.image, (63, 63))
 
 class Bishop(pygame.sprite.Sprite):
     def __init__(self, color):
@@ -69,7 +69,7 @@ class Bishop(pygame.sprite.Sprite):
         else:
             self.image = pygame.image.load('gui_images//white_pieces//wP.png')
         self.rect = self.image.get_rect()
-        self.image = pygame.transform.scale(self.image, (65, 70))
+        self.image = pygame.transform.scale(self.image, (63, 63))
 
 class Knight(pygame.sprite.Sprite):
     def __init__(self, color):
@@ -79,7 +79,7 @@ class Knight(pygame.sprite.Sprite):
         else:
             self.image = pygame.image.load('gui_images//white_pieces//wP.png')
         self.rect = self.image.get_rect()
-        self.image = pygame.transform.scale(self.image, (65, 70))
+        self.image = pygame.transform.scale(self.image, (63, 63))
 
 class King(pygame.sprite.Sprite):
     def __init__(self, color):
@@ -89,7 +89,7 @@ class King(pygame.sprite.Sprite):
         else:
             self.image = pygame.image.load('gui_images//white_pieces//wP.png')
         self.rect = self.image.get_rect()
-        self.image = pygame.transform.scale(self.image, (65, 70))
+        self.image = pygame.transform.scale(self.image, (63, 63))
 
 class Queen(pygame.sprite.Sprite):
     def __init__(self, color):
@@ -99,5 +99,5 @@ class Queen(pygame.sprite.Sprite):
         else:
             self.image = pygame.image.load('gui_images//white_pieces//wP.png')
         self.rect = self.image.get_rect()
-        self.image = pygame.transform.scale(self.image, (65, 70))
+        self.image = pygame.transform.scale(self.image, (63, 63))
 
